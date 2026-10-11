@@ -39,3 +39,13 @@ PASS: 390px homepage has no horizontal overflow and the Go scene fits its frame.
 PASS: workspace shows Algebra foundations with six tasks.
 PASS: browser displayed disabled completion while the explanation was empty.
 The existing timer and completion logic were retained. Production npm/Vite build remains required on the development machine.
+
+Workspace themes, 11 October 2026:
+PASS: 27 regression checks, including saved theme and device-preference fallback.
+PASS: standard npm/Vite production build.
+PASS: browser toggled light/dark; dark theme survived reload.
+PASS: catalog, learning board, custom-path form and task workspace use dark surfaces.
+Marketing appearance is unchanged; theme selectors are scoped to .app-shell.
+
+Theme scope updated at user request: light/dark now covers the marketing page and workspace, with one shared saved preference.
+PASS: marketing dark background and cards verified; selected dark theme carries into the workspace, and switching to light carries back to the homepage.

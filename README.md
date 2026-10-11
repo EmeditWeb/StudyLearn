@@ -122,6 +122,14 @@ Completion stays disabled until the required answer and explanation are provided
 
 ![Understanding check with disabled completion](docs/screenshots/understanding-check.png)
 
+## Light and dark themes
+
+Use the Light or Dark toggle in either the homepage or workspace header, or choose a theme under Preferences. On the first visit the workspace follows the device colour preference; an explicit choice is saved locally and remains selected on reload. The selected theme follows you between the homepage and workspace. Theme changes do not reset attempts, timers or progress.
+
+![StudyLearn dark workspace](docs/screenshots/workspace-dark.png)
+
+![StudyLearn dark homepage](docs/screenshots/homepage-dark.png)
+
 ## Technology and architecture
 
 - React 19 for the interface.
@@ -176,11 +184,11 @@ The build validates TypeScript and creates the production bundle in `dist/`. Pre
 
 ## Verification
 
-Strict TypeScript validation and **23 regression checks** passed in the development environment. Checks cover progress recovery, completion requirements, wrong answers, hint boundaries, wall-clock timers, unique tasks, learning coverage and personal paths.
+Strict TypeScript validation and **27 regression checks** passed in the development environment. Checks cover progress recovery, completion requirements, wrong answers, hint boundaries, wall-clock timers, unique tasks, learning coverage and personal paths.
 
 Browser checks covered task guidance, completion safeguards, navigation, the automatic preview and a 390px phone layout. See [TEST-REPORT.txt](TEST-REPORT.txt).
 
-The environment blocked shell subprocesses, so the standard npm/Vite production build still needs to run on the development machine. Broader device testing, actual phone audio behaviour, accessibility checks with learners and evidence of improved completion remain outstanding.
+The standard npm/Vite production build also passed on the development machine. Broader device testing, actual phone audio behaviour, accessibility checks with learners and evidence of improved completion remain outstanding.
 
 ## Operating conditions and limitations
 

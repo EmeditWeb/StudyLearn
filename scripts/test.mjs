@@ -4,7 +4,7 @@ import { createRequire } from 'node:module';
 const ts=createRequire(import.meta.url)('typescript');
 const root=new URL('../',import.meta.url);
 async function compiled(name){const source=await readFile(new URL('src/'+name+'.ts',root),'utf8');const js=ts.transpileModule(source,{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.ESNext}}).outputText.replace(/from (['"])\.\/modules\1/g,'from "./modules.mjs"');const dir=new URL('work/tests/',root);await mkdir(dir,{recursive:true});const file=new URL(name+'.mjs',dir);await writeFile(file,js);return import(file.href);}
-await compiled('modules');const logic=await compiled('logic');const data=await compiled('data');let passed=0;
+await compiled('modules');const theme=await compiled('theme');const logic=await compiled('logic');const data=await compiled('data');let passed=0;
 function test(name,fn){fn();passed++;console.log('PASS '+name);}
 test('Corrupt progress falls back safely',()=>assert.deepEqual(logic.parseState('{bad'),logic.initialState()));
 test('Unknown schemas are rejected',()=>assert.deepEqual(logic.parseState('{"version":9,"progress":{}}'),logic.initialState()));
@@ -29,4 +29,8 @@ test('Custom paths create tasks for arbitrary subjects',()=>{const n=data.tasks.
 test('No answer keeps completion disabled',()=>assert.equal(logic.reflectionReady(null,'A sufficiently long explanation.'),false));
 test('Whitespace is not a reflection',()=>assert.equal(logic.reflectionReady(1,' '.repeat(30)),false));
 test('Filled answer and reflection enable validation',()=>assert.equal(logic.reflectionReady(0,'I subtracted three and divided both sides by two.'),true));
+test('Saved light choice overrides dark system preference',()=>assert.equal(theme.resolveTheme('light',true),'light'));
+test('Saved dark choice overrides light system preference',()=>assert.equal(theme.resolveTheme('dark',false),'dark'));
+test('First visit follows system preference',()=>{assert.equal(theme.resolveTheme(null,true),'dark');assert.equal(theme.resolveTheme(null,false),'light');});
+test('Invalid saved theme safely falls back',()=>assert.equal(theme.resolveTheme('invalid',false),'light'));
 console.log(passed+' checks passed.');
