@@ -72,6 +72,7 @@
 [data-theme="dark"] :is(.gentle-note,.bottom-reminder,.board-column,.reflection,.task-goal,.task-support,.notice,.moment-stage){background:var(--surface-soft);border-color:var(--line)}
 [data-theme="dark"] .continue-card{background:#294231;border-color:#465e46}
 [data-theme="dark"] :is(.support-panel,.focus-moment){background:#293e2d;border-color:#476146}
+[data-theme="dark"] .timer-alert{background:#293e2d;border-color:#476146;color:#d1e6b8}
 [data-theme="dark"] .btn{background:var(--accent);color:var(--accent-text);border-color:var(--accent)}
 [data-theme="dark"] .btn.outline{background:transparent;color:var(--green);border-color:#668269}
 [data-theme="dark"] .btn.pale{background:#324d37;color:#e8efe2;border-color:#668269}
@@ -134,3 +135,13 @@
 [data-theme="dark"] .rhythm-grid article{border-color:var(--line)}
 [data-theme="dark"] .sl-preview-card::before{border-color:#82a06b55}
 @media(max-width:700px){.marketing-header{gap:8px}.marketing-actions{gap:8px}}
+
+/* Global density: the layout reads best at ~80% browser zoom, so render the whole
+   document at that scale by default. This keeps the normal 100% view from looking
+   bulgy. Nudge this factor (e.g. .82/.85) if you want it a touch larger. */
+html{zoom:.8}
+
+/* Hide scrollbars everywhere (landing, workspace, modals, boards, code blocks)
+   while keeping scroll/overflow behaviour intact. */
+*{scrollbar-width:none;-ms-overflow-style:none}
+*::-webkit-scrollbar{width:0;height:0;display:none}

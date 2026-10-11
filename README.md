@@ -6,6 +6,8 @@ StudyLearn is a learning companion that helps people work through roadblocks, as
 
 **Status:** working invention-sprint proof of concept, with 91 starter exercises across 22 learning paths. Guidance is prepared locally. Live AI assistance is planned.
 
+**Primary track:** Track 2 - Engagement and Staying in the Learning Journey
+
 ## Problem statement
 
 Finding a course is only the beginning. When instructions are unclear or a concept becomes difficult, a learner may stop, postpone the lesson or ask AI for a complete answer before making a meaningful attempt. Finishing this way can leave the underlying concept unclear.
