@@ -1,0 +1,68 @@
+StudyLearn Delivery Roadmap
+
+Planning baseline: 11 October 2026
+Milestones describe sequence and exit criteria. Dates and effort estimates remain open until sprint duration and team size are confirmed.
+
+MILESTONE 1 - SUBMISSION SCAFFOLD
+Status: In progress
+Deliverables: marketing site, prepared-hint example, project proposal, roadmap and progress tracker.
+Exit criteria: working navigation, demonstrated timer and saved notes, clear project identity, Codex contribution credit and clear distinction between implemented and planned features.
+
+MILESTONE 2 - VALIDATE THE ROADBLOCK
+Status: Not started
+Observe three to five learners, choose one beginner Python topic and review the proposed workflow. Curate three to five tasks with source links and expected outcomes.
+Exit criteria: documented learner needs, revised workflow and approved task content. Dependency: access to willing learners.
+
+MILESTONE 3 - BUILD THE CORE LEARNING LOOP
+Status: Not started
+Implement task selection, board transitions, attempts, focus sessions, prepared assistance and understanding checks.
+Exit criteria: a learner can complete, pause and resume a full task workflow without lost progress. Dependency: validated tasks.
+
+MILESTONE 4 - ADD PROGRESSIVE AI ASSISTANCE
+Status: Not started
+Choose provider and budget. Implement a server hint endpoint, server-side credentials, request limits, explicit support levels and failure feedback. Create a task evaluation set before integrating AI responses.
+Exit criteria: reviewed guidance is correct and appropriately limited on approved sample tasks; failures preserve work and provide fallback assistance.
+
+MILESTONE 5 - VERIFY OPERATING CONDITIONS
+Status: Not started
+Add cached lesson access. Check narrow screens, keyboard use, offline tasks, deletion, storage failure and provider errors.
+Exit criteria: required checks pass and limitations are recorded.
+
+MILESTONE 6 - EVALUATE AND PRESENT
+Status: Not started
+Observe learner sessions, revise based on findings and record a reproducible demonstration.
+Exit criteria: findings documented, critical defects resolved, demo steps reproducible and presentation ready.
+
+FUNCTIONAL ACCEPTANCE CRITERIA
+FR01 Each task shows its objective, prerequisites, source and completion criteria.
+FR02 Board states persist after refresh; stuck tasks can return to Working.
+FR03 Focus duration is adjustable; pause preserves time; assistance remains available throughout.
+FR04 Attempts and next steps can be saved, restored and deleted.
+FR05 Task clarification is immediate and independent of hint progression.
+FR06 Task completion includes an explanation or a related understanding check with clear feedback.
+FR07 Storage or provider failure preserves learner work and explains the next action.
+
+NONFUNCTIONAL ACCEPTANCE CRITERIA
+NFR01 Complete the core flow using keyboard controls and a 360px viewport; labels and focus remain visible.
+NFR02 Previously cached tasks and saved attempts remain available offline. Identify AI support that needs a connection.
+NFR03 API credentials remain server-side; inputs have size limits; learner and AI text is rendered safely.
+NFR04 Document provider transmission and retention, minimise personal data and support deletion.
+NFR05 Review each task against a traceable source and evaluate AI on a curated set of learner attempts.
+
+TEST SCENARIOS
+T01 Timer: start, pause, resume, reset, change duration and finish. Verify no duplicate ticking or help lockout.
+T02 Persistence: save notes, refresh, restore and delete; repeat with storage unavailable.
+T03 Support: clarify immediately and request all support levels; verify correctness against the task.
+T04 AI: evaluate normal and vague attempts, misconceptions, full-answer requests and instruction overrides. Review correctness and premature disclosure.
+T05 Failure: simulate offline use, timeout and server errors; preserve attempts and offer prepared support.
+T06 Inclusion: keyboard navigation, narrow-screen layout, visible focus and announcement of hints.
+T07 Security: verify no client-side secret, reject oversized input and ensure markup cannot execute.
+
+PROGRESS TRACKING
+Use the accompanying CSV backlog. Assign an owner and estimate before starting. Status values: Not started, In progress, Blocked, Review, Done. Attach evidence before marking Done. Update after each working session. Keep known blockers and remaining decisions visible.
+
+PROOF OF CONCEPT COMPLETION
+Complete when a three-to-five-task track supports the full roadblock recovery flow, required checks pass, exploratory learner observations are recorded and a reviewer can reproduce the demo. Broad subject coverage and long-term retention are outside this completion criterion.
+
+REMAINING DECISIONS
+Confirm the deadline, team roles, first Python topic, pilot participants, AI provider and budget. Decide whether cross-device accounts are needed after the initial local prototype. Schedule milestones after these decisions.

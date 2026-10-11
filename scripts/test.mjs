@@ -1,0 +1,32 @@
+import assert from 'node:assert/strict';
+import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { createRequire } from 'node:module';
+const ts=createRequire(import.meta.url)('typescript');
+const root=new URL('../',import.meta.url);
+async function compiled(name){const source=await readFile(new URL('src/'+name+'.ts',root),'utf8');const js=ts.transpileModule(source,{compilerOptions:{target:ts.ScriptTarget.ES2022,module:ts.ModuleKind.ESNext}}).outputText.replace(/from (['"])\.\/modules\1/g,'from "./modules.mjs"');const dir=new URL('work/tests/',root);await mkdir(dir,{recursive:true});const file=new URL(name+'.mjs',dir);await writeFile(file,js);return import(file.href);}
+await compiled('modules');const logic=await compiled('logic');const data=await compiled('data');let passed=0;
+function test(name,fn){fn();passed++;console.log('PASS '+name);}
+test('Corrupt progress falls back safely',()=>assert.deepEqual(logic.parseState('{bad'),logic.initialState()));
+test('Unknown schemas are rejected',()=>assert.deepEqual(logic.parseState('{"version":9,"progress":{}}'),logic.initialState()));
+test('Hint levels are bounded',()=>assert.equal(logic.parseState(JSON.stringify({version:1,progress:{lists:{hintLevel:99}},sessions:-4,focusSeconds:-2})).progress.lists.hintLevel,3));
+test('Invalid status falls back to ready',()=>assert.equal(logic.parseState(JSON.stringify({version:1,progress:{lists:{status:'invented'}}})).progress.lists.status,'ready'));
+test('Wrong answers cannot complete a task',()=>assert.equal(logic.canComplete(0,1,'A sufficiently long reflection.'),false));
+test('A correct answer still needs reflection',()=>assert.equal(logic.canComplete(1,1,'short'),false));
+test('Correct answer and reflection allow completion',()=>assert.equal(logic.canComplete(1,1,'I can explain why the comparison includes equality.'),true));
+test('Hints stop at the final support level',()=>assert.equal(logic.nextHint(3),3));
+test('Expired timers never become negative',()=>assert.equal(logic.timerRemaining(1000,2000),0));
+test('Timer uses elapsed wall time',()=>assert.equal(logic.timerRemaining(10000,3500),7));
+test('Resume prioritises a stuck task',()=>assert.equal(logic.suggestedTask(['a','b'],{b:{...logic.emptyProgress(),status:'stuck'}}),'b'));
+test('Completed tracks have no suggested task',()=>assert.equal(logic.suggestedTask(['a'],{a:{...logic.emptyProgress(),status:'completed'}}),undefined));
+test('Task identifiers are unique',()=>assert.equal(new Set(data.tasks.map(t=>t.id)).size,data.tasks.length));
+test('Every built-in task has valid support and an answer',()=>data.tasks.forEach(t=>{assert.equal(t.hints.length,3);assert.ok(t.answer>=0&&t.answer<t.options.length);assert.ok(/^https:\/\//.test(t.source));assert.ok(data.tracks.some(p=>p.id===t.trackId));}));
+test('All learning fields have paths',()=>assert.equal(new Set(data.tracks.map(t=>t.category)).size,5));
+test('Every starter path includes at least four tasks',()=>data.tracks.forEach(path=>assert.ok(data.tasks.filter(t=>t.trackId===path.id).length>=4,path.title)));
+test('Algebra includes six progressive exercises',()=>assert.equal(data.tasks.filter(t=>t.trackId==='algebra').length,6));
+test('Expanded exercises have three choices and distinct questions',()=>{data.tasks.forEach(t=>assert.equal(t.options.length,3));assert.equal(new Set(data.tasks.map(t=>t.id)).size,data.tasks.length);});
+test('Algebra equations have verified solutions',()=>{assert.equal(3*(4+2),18);assert.equal(5*5-4,2*5+11);assert.equal(data.tasks.find(t=>t.id==='algebra-both-sides').options[data.tasks.find(t=>t.id==='algebra-both-sides').answer],'5');});
+test('Custom paths create tasks for arbitrary subjects',()=>{const n=data.tasks.length;data.addCustomPath({id:'custom-test',title:'Biology',category:'Maths and science',goals:['Describe a cell'],source:''});assert.equal(data.tasks.length,n+1);assert.equal(data.tasks.at(-1).trackId,'custom-test');});
+test('No answer keeps completion disabled',()=>assert.equal(logic.reflectionReady(null,'A sufficiently long explanation.'),false));
+test('Whitespace is not a reflection',()=>assert.equal(logic.reflectionReady(1,' '.repeat(30)),false));
+test('Filled answer and reflection enable validation',()=>assert.equal(logic.reflectionReady(0,'I subtracted three and divided both sides by two.'),true));
+console.log(passed+' checks passed.');

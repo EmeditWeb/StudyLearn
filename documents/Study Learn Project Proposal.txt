@@ -1,0 +1,62 @@
+StudyLearn Project Proposal
+
+Submission date: 11 October 2026
+Primary track: Track 2 - Engagement and Staying in the Learning Journey
+Stage: marketing site and interactive concept scaffold
+
+PROJECT SUMMARY
+StudyLearn is a proposed learning companion for learners across different subjects who lose momentum when practical tasks become difficult. It combines a learning task board, flexible focus sessions and progressive assistance to help learners make another attempt and understand their work. The current scaffold demonstrates the concept with prepared hints. Live AI assistance and the complete learning application remain planned.
+
+PROBLEM AND PERSONAL ORIGIN
+The founder described abandoning Coursera learning when encountering roadblocks or unclear instructions, and quickly relying on AI for answers. This personal experience motivates the project hypothesis. It does not establish how common the problem is among other learners.
+The first audience is learners across different subjects, including university students and people taking online courses. The longer term ambition includes other subjects such as project management. The proof of concept will use starter paths across coding, maths, project work and communication.
+
+PROPOSED LEARNING EXPERIENCE
+A learner chooses a small task with an explicit outcome, makes a focused attempt, describes the roadblock and receives a useful nugget of support. Further assistance is available when needed. The learner tries again, explains a key decision and saves the next step.
+The 15-minute rule is a suggested focus period, not a mandatory wait. Learners can pause or adjust it. Unclear instructions can be clarified immediately, and missing prerequisite knowledge can be addressed with direct instruction.
+A task board makes progress visible through Ready, Working, Stuck, Checking understanding and Completed states. This borrows useful structure from Jira without requiring integration. Stuck tasks can return to Working.
+
+EXAMPLE WALKTHROUGH
+A Python loop prints two names from a list of three. The learner predicts the indices, receives a hint about the range ending value and explains a correction. A related task checks whether the learner can apply the concept again. The marketing site currently demonstrates this task with prepared guidance, a focus timer and locally saved notes. It does not execute code or send AI requests.
+
+PROOF OF CONCEPT SCOPE
+A catalog of 22 starter paths and custom learning goals; task selection and a progress board; attempt and roadblock notes; flexible focus sessions; progressive assistance; a short understanding check; saved progress; readable mobile layout; traceable resource links.
+Deferred: multiple subjects, automated Coursera imports, marketplaces, certificates, job matching, public rankings, Jira integration and full multilingual delivery. The prototype will not run untrusted learner code on a server.
+
+AI SUPPORT BEHAVIOUR
+Support progresses from a next-action hint to a targeted concept explanation and more direct guidance. Learners can request stronger help. Clarification is available immediately and independent of support level. Time spent waiting is not evidence of learning.
+For the live AI phase, a server will provide the task, support level, learner attempt and curated source context. Responses must be evaluated for correctness, relevance and premature answer disclosure. Prompt instructions alone cannot guarantee the desired behaviour. Prepared hints provide a fallback when live support is unavailable.
+
+REAL OPERATING CONDITIONS
+Quality: curate tasks against credible sources, link references, review expected outcomes and clearly label AI guidance. Provide a way to report incorrect support.
+Limited connectivity: text-first pages, small assets, saved notes and cached task instructions. Previously loaded content should remain useful offline. Live AI requires a connection; full offline behaviour is planned and not yet implemented.
+Inclusion: keyboard access, visible focus, readable contrast, clear labels, plain language, adjustable sessions and immediate clarification. Test with learners of different confidence levels.
+Privacy: minimise collected information, keep progress private, disclose data sent to the AI provider and provide deletion. The current demo stores notes in the same browser only; shared devices and cleared storage are limitations.
+Languages and local relevance: English is the prototype language. Validate future languages and tasks with local learners; do not assume one curriculum fits all contexts.
+
+PROPOSED ARCHITECTURE
+The current site uses HTML, CSS and JavaScript with no installation step. The application begins with curated task data and browser-local progress. Add structured local storage and cached task access, followed by a server endpoint for AI hints. Keep API credentials on the server and validate input sizes. Provider, budget and retention settings must be selected before live AI implementation.
+Core records: Track, Task, Attempt, Hint and Progress. Attempts contain the task identifier, notes, timestamps and intended next step. Completion includes a result and explanation. Do not collect personal data for provider logs by default.
+
+CO ENGINEERED WITH CODEX
+The founder supplied the capstone concept from personal learning experience. Codex assists with implementation details, scaffolding the marketing site, the interactive example, requirements, verification and documentation. The team owns the concept, source review, learning design and final decisions.
+Retain concrete examples of prompts, code changes, tests and defects resolved with Codex. Distinguish Codex as the development tool from the AI assistance learners will use inside the eventual product. The website includes a Codex logo and contribution credit.
+
+VALIDATION PLAN
+Observe three to five consenting learners across different subjects using realistic tasks. Record whether they recover from a roadblock, the support level needed, whether they can explain a correction, and whether they can apply it to a related task. Ask about frustration and unnecessary steps.
+Where feasible, compare similar tasks with and without the companion and vary task order. Treat this as exploratory design evidence. A small pilot cannot establish population-wide effectiveness or long-term retention.
+Hypotheses: structured attempts and progressive hints may support roadblock recovery and understanding. Improved retention and reduced dependence on AI have not been established.
+
+VIABILITY AND RISKS
+Prepared hints allow the workflow to be demonstrated without paid AI requests. Live support adds network dependence, latency and usage cost. Measure request volume and cost before extending it.
+Rigid effort rules may frustrate learners; keep assistance available. Vague hints may stall progress; allow stronger support. Boards may create overhead; minimise updates. AI may disclose answers or invent explanations; use reviewed tasks, evaluations and fallback guidance. Saved browser data may be lost or visible on shared devices; explain limitations and provide deletion.
+
+PRESENTATION SEQUENCE
+Describe the personal roadblock and Track 2 fit. Identify learners across different subjects as the initial audience. Demonstrate one learning loop. Show concrete Codex contributions. Report evidence and limitations, then explain the next milestone. Describe planned features as planned.
+
+REFERENCES AND SUBMISSION CHECKS
+Python range: https://docs.python.org/3/tutorial/controlflow.html#the-range-function
+Codex: https://openai.com/codex/
+Codex logo asset: https://asvg.app/assets/svg/codex/codex-symbol-monochrome.svg
+Problem origin: founder account supplied during project planning.
+Before submission, add the author or team name and institution details required by the form. Confirm the sprint deadline and team roles. A privately hosted site may not be accessible to reviewers; the local website and document remain usable.

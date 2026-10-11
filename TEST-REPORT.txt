@@ -1,0 +1,41 @@
+StudyLearn verification, 11 October 2026
+
+PASS: strict TypeScript validation.
+PASS: 19 regression checks for completion, corrupt-state recovery, valid answer ranges, hint limits, wall-clock timers, resume ordering, credible source links and custom paths.
+PASS: browser completion is disabled without an answer or with empty, short or whitespace-only reflection.
+PASS: wrong answer plus reflection shows feedback and does not complete.
+PASS: a full five-minute countdown reached zero and displayed the expiry alert without console errors.
+PASS: correct algebra answer plus a sufficient explanation completed the task.
+PASS: duration is disabled during running and paused sessions; reset unlocks it.
+PASS: homepage artwork loads at its natural aspect ratio with contain sizing.
+PASS: challenge-track footer text removed.
+PASS: search, empty search, system design selection, all three nugget levels and task clarification.
+PASS: attempts, next steps and custom paths persist after reload.
+PASS: JSON export downloads with saved attempts and hint level.
+PASS: preferences and explicit reset confirmation can be cancelled.
+PASS: cached workspace opens with its server stopped.
+PASS: mobile layout at 390px has no horizontal page overflow.
+
+Still required: npm/Vite production build on the development machine; additional browser/device testing; learner research; audio playback on actual learner devices. Browser audio restrictions may silence the bell, so the visual expiry alert is always included.
+
+Interactive focus update: strict TypeScript check and all 19 existing regression checks passed. Browser verified selectable prompts, paused duration lock and one-minute countdown.
+PASS: full one-minute session faded into loaded StudyLearn artwork, recorded one minute of focus and reset back to 01:00.
+
+Homepage correction: focus preview is now in the public hero before entering the workspace. Strict TypeScript and all 19 existing checks passed. The public preview does not add demo seconds to learner progress.
+PASS: homepage and task selectors both default to 15, offer 1/5/10/15/20/25 minutes and measure 150px wide. Public countdown reached the artwork reveal.
+
+Automatic homepage hero: original headline/layout restored; no buttons, selectors or extra headings in the illustration. Accelerated five-minute countdown is separate from real timers. Strict TypeScript and all 19 regression checks passed.
+PASS: browser observed automatic countdown, zero, loaded artwork reveal and no controls in hero. No console errors.
+
+Original marketing card match: restored green slanted frame, Python/loops title, focus typography, three-step strip, exact prepared nugget and orange roadblock note. Automatic scenes are nugget, rapid countdown and StudyLearn artwork. TypeScript and 19 regression checks passed.
+PASS: enlarged slanted card measured 656px tall at desktop width. Entire nugget fits within its frame. Added progress heading, supportive message and three learning steps to fill the logo scene.
+
+11 October 2026, expanded modules and automatic Go preview:
+PASS: strict TypeScript validation after adding modules.ts.
+PASS: 23 regression checks, including minimum path depth and six algebra exercises.
+PASS: catalog contains 91 built-in tasks across 22 paths; new task IDs are unique.
+PASS: browser rendered the Go preview and its output.
+PASS: 390px homepage has no horizontal overflow and the Go scene fits its frame.
+PASS: workspace shows Algebra foundations with six tasks.
+PASS: browser displayed disabled completion while the explanation was empty.
+The existing timer and completion logic were retained. Production npm/Vite build remains required on the development machine.

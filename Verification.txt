@@ -1,0 +1,6 @@
+Verified 11 October 2026
+
+Browser checks passed: marketing page renders; clarification and hint controls work; support escalates to level three; focus starts and pauses; notes save and restore after refresh; notes can be cleared; Codex logo loads.
+Desktop page width: 1280px, content scroll width: 1265px. Narrow preview was visually inspected.
+
+Limitations: live AI, full task board workflow, offline caching and learning outcomes are not implemented or validated. Documents are printable HTML with text copies. Windows prevented creating the requested home-directory folder and blocked the command runtime needed for source publishing. The website remains a local deliverable.
