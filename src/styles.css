@@ -57,14 +57,14 @@
 @media(prefers-reduced-motion:reduce){.app-home-hero::after{animation:none}}
 
 /* A shared theme covers the homepage and learning workspace. */
-.app-shell,.landing{--surface:#fffefb;--surface-soft:#edf0e7;--accent:#294836;--accent-text:#fff;--field:#fff;color:var(--green);color-scheme:light}
+.app-shell,.landing{--surface:#fffefb;--surface-soft:#edf0e7;--accent:#294836;--accent-text:#fff;--field:#fff;color:var(--green);color-scheme:only light}
 .theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:40px;padding:9px 12px;background:var(--surface);color:var(--green);border:1px solid var(--line);border-radius:10px;font-size:12px;font-weight:600;flex-shrink:0}
 .theme-toggle:hover{background:var(--surface-soft)}
 .theme-options{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
 .theme-option{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:12px;padding:16px 22px;background:var(--surface);color:var(--green);font-size:13px;min-width:130px}
 .theme-option[aria-pressed="true"]{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent);background:var(--surface-soft)}
 .theme-option .theme-check{margin-left:auto}
-[data-theme="dark"]{--green:#e8efe2;--sage:#2a402f;--cream:#111d19;--muted:#b2c0b2;--line:#3b5145;--orange:#edab81;--surface:#1a2b23;--surface-soft:#22372b;--accent:#c3df9d;--accent-text:#17271c;--field:#14231c;background:#111d19;color:var(--green);color-scheme:dark}
+[data-theme="dark"]{--green:#e8efe2;--sage:#2a402f;--cream:#111d19;--muted:#b2c0b2;--line:#3b5145;--orange:#edab81;--surface:#1a2b23;--surface-soft:#22372b;--accent:#c3df9d;--accent-text:#17271c;--field:#14231c;background:#111d19;color:var(--green);color-scheme:only dark}
 [data-theme="dark"] :focus-visible{outline-color:#e7b88d}
 [data-theme="dark"] .workspace-shell{background:#111d19}
 [data-theme="dark"] :is(.sidebar,.app-header,.task-workspace,.task-header,.custom-dialog){background:#17271f;color:var(--green);border-color:var(--line)}

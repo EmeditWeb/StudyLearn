@@ -13,6 +13,11 @@ export function useWorkspaceTheme() {
   try { localStorage.setItem(THEME_STORAGE_KEY, theme); } catch { /* Keep the selected theme in memory. */ }
  }, [theme]);
  useEffect(() => {
+  // Pin the document scheme with the `only` keyword so Chrome's Auto Dark Mode
+  // cannot force-darken the light theme into a muddy brown.
+  document.documentElement.style.colorScheme = theme === 'dark' ? 'only dark' : 'only light';
+ }, [theme]);
+ useEffect(() => {
   const sync = (event: StorageEvent) => {
    if (event.key === THEME_STORAGE_KEY) setTheme(resolveTheme(event.newValue, window.matchMedia('(prefers-color-scheme: dark)').matches));
   };
