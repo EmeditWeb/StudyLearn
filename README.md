@@ -8,7 +8,7 @@ StudyLearn is a learning companion that helps people work through roadblocks, as
 
 **Primary track:** Track 2 - Engagement and Staying in the Learning Journey
 
-**Pitch video:** [Watch the StudyLearn pitch on Loom](https://www.loom.com/share/3dd4acf8e1a94f5aa93c9b4bc26605be)
+**Pitch video:** [Watch the StudyLearn pitch on Loom](https://www.loom.com/share/2225b68c6ca54bc287163bc9c7513f97)
 
 ## Problem statement
 
